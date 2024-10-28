@@ -1,8 +1,8 @@
 #!/bin/bash
 
 NAME="api_musiccpr"                                     # Name of the application
-DJANGODIR=/home/ec2-user/prod-versions/live                             # Django project directory
-SOCKFILE=/home/ec2-user/socks/prod/asgi.sock
+DJANGODIR=/data/worktree/prod/backend/live              # Django project 
+SOCKFILE=/data/socks/prod/asgi.sock
 #USER=nginx                                             # the user to run as
 USER=ec2-user                                             # the user to run as
 GROUP=ec2-user                                           # the group to run as
@@ -15,7 +15,7 @@ echo "Starting $NAME as `whoami`"
 
 # Activate the virtual environment
 cd $DJANGODIR
-source /home/ec2-user/venv-prod/bin/activate
+source /data/venv-all/prod/v2.1/bin/activate
 export DJANGO_READ_DOT_ENV_FILE=True
 export DJANGO_SETTINGS_MODULE=config.settings.production
 export PYTHONPATH=$DJANGODIR:$PYTHONPATH
